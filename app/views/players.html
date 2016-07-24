@@ -1,0 +1,46 @@
+<md-content>
+	<h1 class="text-center">Jugadores</h1>
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Nuevo Jugador</h2>
+			<form>
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>Nombre del Jugador *</label>
+				        <input ng-model="players.name">
+				    </md-input-container>
+
+				    <md-input-container>
+				        <label>Equipo</label>
+				        	<md-select ng-model="players.team">
+				          	<md-option ng-repeat="team in players.teams" value="{{team.id}}">
+				            	{{team.name}}
+				          	</md-option>
+				        </md-select>
+				     </md-input-container>
+
+				     <md-input-container>
+				        <label>Juego *</label>
+				        	<md-select ng-model="players.game">
+				          	<md-option ng-repeat="game in players.games" value="{{game.id}}">
+				            	{{game.name}}
+				          	</md-option>
+				        </md-select>
+				     </md-input-container>
+			    </div>
+
+				<md-button class="md-raised md-primary">Guardar</md-button>
+			</form>
+		</div>
+	</div>
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Listado de Jugadores</h2>
+			<ul>
+				<li ng-repeat="player in players.players">
+					<a href="/" ng-bind="player.name"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</md-content>

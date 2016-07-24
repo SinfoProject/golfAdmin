@@ -1,0 +1,57 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+#main{
+  min-height: 100%;
+  margin-bottom: -60px;
+}
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+  height: 60px;
+  bottom: 0;
+}
+
+th,td,td p{
+  text-align: center;
+}
+
+.md-button{ margin: 0 !important;}
+md-card{ margin-bottom: 18px; }
+
+.md-whiteframe-6dp{
+  margin: 1em;
+}
+.containerbox{
+  padding: 1em;
+}
+.holesList{ padding: 0; }
+.holesList li{
+  display: inline-block;
+  font-style: none;
+  margin: 8px;
+}
+.holesList li input{ width: 25px; }

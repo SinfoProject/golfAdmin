@@ -1,0 +1,37 @@
+<h1 class="text-center">Detalles del juego: {{game.game.name}}</h1>
+
+<h2>Listado de Jugadores</h2>
+<ul>
+	<li ng-repeat="player in game.game.players">
+		<a href="/player" ng-bind="player.name"></a>
+	</li>
+</ul>
+
+<h2>Resultados</h2>
+<md-card ng-repeat="player in game.players">
+	<md-card-title>
+		<span class="md-headline">{{player.name}}</span>
+	</md-card-title>
+	<md-card-content>
+		<table class="table table-striped" >
+		  <thead>
+		    <tr>
+		      <th>Hoyos</th>
+		      <th ng-repeat="thHole in game.holes">{{thHole}}</th>
+		      <th>Total</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>Movimientos</td>
+		      <td ng-repeat="hole in player.holesPlayers">
+		      	<p class="bg-info">{{hole.shot}}</p>
+		      	<p class="bg-danger">{{hole.penalty}}</p>
+		      	<p class="bg-success">{{ (hole.shot + hole.penalty) }}</p>
+		      </td>
+		      <td>{{player.total}}</td>
+		    </tr>
+		  </tbody>
+		</table>
+	</md-card-content>
+</md-card>

@@ -1,0 +1,47 @@
+<md-content>
+	<h1 class="text-center">Juegos</h1>
+
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Nuevo Juego</h2>
+			<form>
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>Nombre del Juego *</label>
+				        <input ng-model="games.name">
+				    </md-input-container>
+
+				    <md-input-container>
+				        <label>Tipo de Juego *</label>
+				        <md-select ng-model="games.type">
+				          	<md-option ng-repeat="type in ['stroke','stableford','match']" value="{{type}}">
+				            	{{type | uppercase}}
+				          	</md-option>
+				        </md-select>
+				     </md-input-container>
+
+				     <md-input-container>
+				        <label>Campo *</label>
+				        	<md-select ng-model="games.field">
+				          	<md-option ng-repeat="field in games.fields" value="{{field.id}}">
+				            	{{field.name | uppercase}}
+				          	</md-option>
+				        </md-select>
+				     </md-input-container>
+			    </div>
+
+				<md-button class="md-raised md-primary">Guardar</md-button>
+			</form>
+		</div>			
+	</div>
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Listado de Juegos</h2>
+			<ul>
+				<li ng-repeat="game in games.games">
+					<a href="/games/{{game.id}}" ng-bind="game.name"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</md-content>

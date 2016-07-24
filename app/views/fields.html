@@ -1,0 +1,46 @@
+<md-content>
+
+	<h1 class="text-center">Campos</h1>
+
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Nuevo Campo de Golf</h2>
+			<form ng-submit="fields.checks()">
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>Nombre del Campo *</label>
+				        <input ng-model="fields.fieldName" ng-required>
+				    </md-input-container>
+
+				    <md-input-container>
+				        <label>N° de Hoyos *</label>
+				        <input type="number" ng-model="fields.fieldHoles" ng-change="fields.buildHoles()" ng-required>
+				    </md-input-container>
+			    </div>
+			    <div ng-if="fields.holesList.length > 0">
+			    	<h2>Par de hoyos</h2>
+			    	<ul class="holesList">
+			    		<li ng-repeat="hole in fields.holesList">
+			    			<h3 class="text-center">{{hole}}</h3>
+			    			<input>
+			    		</li>
+			    	</ul>
+			    </div>
+
+				<md-button type="submit" class="md-raised md-primary">Guardar</md-button>
+			</form>
+		</div>
+	</div>
+
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Listado de Campos</h2>
+			<ul>
+				<li ng-repeat="field in fields.fields">
+					<a href="/" ng-bind="field.name"></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</md-content>

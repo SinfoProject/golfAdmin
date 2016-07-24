@@ -1,0 +1,29 @@
+<md-content>
+	<h1 class="text-center">Equipos</h1>
+
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<form>
+				<h2>Nuevo Equipo *</h2>
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>Nombre del Equipo</label>
+				        <input ng-model="games.name">
+				    </md-input-container>
+			    </div>
+
+				<md-button class="md-raised md-primary">Guardar</md-button>
+			</form>
+		</div>
+	</div>
+	<div md-whiteframe="6">
+		<div class="containerbox">
+		<h2>Listado de Equipos</h2>
+		<ul>
+			<li ng-repeat="team in teams.teams">
+				<a href="/" ng-bind="team.name"></a>
+			</li>
+		</ul>
+		</div>
+	</div>
+</md-content>
