@@ -2,33 +2,74 @@
 
 	<h1 class="text-center">Campos</h1>
 
-	<div md-whiteframe="6">
+	<div md-whiteframe="6" ng-show="!fields.fieldToUpdate.id">
 		<div class="containerbox">
 			<h2>Nuevo Campo de Golf</h2>
-			<form ng-submit="fields.checks()">
+			<form name="myform" ng-submit="fields.createField()">
 				<div layout layout-margin layout-wrap>
 					<md-input-container>
 				        <label>Nombre del Campo *</label>
-				        <input ng-model="fields.fieldName" ng-required>
+				        <input ng-model="fields.fieldName" name="fieldName" required>
 				    </md-input-container>
 
 				    <md-input-container>
 				        <label>N° de Hoyos *</label>
-				        <input type="number" ng-model="fields.fieldHoles" ng-change="fields.buildHoles()" ng-required>
+				        <input type="number" ng-model="fields.fieldHoles" name="fieldHoles" ng-change="fields.buildHoles()" required>
 				    </md-input-container>
 			    </div>
-			    <div ng-if="fields.holesList.length > 0">
+			    <div ng-show="fields.holesList.length > 0">
 			    	<h2>Par de hoyos</h2>
 			    	<ul class="holesList">
 			    		<li ng-repeat="hole in fields.holesList">
 			    			<h3 class="text-center">{{hole}}</h3>
-			    			<input>
+			    			<input type="number" ng-model="fields.holes[$index]" required>
 			    		</li>
 			    	</ul>
 			    </div>
-
-				<md-button type="submit" class="md-raised md-primary">Guardar</md-button>
+			    <div layout layout-align="end">
+					<md-button type="submit" class="md-raised md-primary">Guardar</md-button>
+				</div>
 			</form>
+		</div>
+	</div>
+	<div md-whiteframe="6" ng-show="fields.fieldToUpdate.id">
+		<div class="containerbox">
+			<div  class="text-right">
+				<md-input class="glyphicon glyphicon-remove" ng-click="fields.unsetFieldUpdate()"></md-input>
+			</div>
+			<h2>Editar Campo de Golf</h2>
+			<form name="myformEdit" ng-submit="fields.updateField()">
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>Nombre del Campo *</label>
+				        <input ng-model="fields.fieldToUpdate.name" name="fieldName" required>
+				    </md-input-container>
+
+				    <md-input-container>
+				        <label>N° de Hoyos *</label>
+				        <input type="number" ng-model="fields.fieldToUpdate.nHoles" name="fieldHoles" ng-change="fields.buildHoles()" required>
+				    </md-input-container>
+			    </div>
+			    <div ng-show="fields.fieldToUpdate.holesFields.length > 0">
+			    	<h2>Par de hoyos</h2>
+			    	<ul class="holesList">
+			    		<li ng-repeat="hole in fields.fieldToUpdate.holesFields">
+			    			<h3 class="text-center">{{hole.hole}}</h3>
+			    			<input type="number" ng-model="hole.par" required>
+			    		</li>
+			    	</ul>
+			    </div>
+			    <div  class="text-right">
+			    	<md-button class="md-raised md-warn" ng-click="fields.deleteField()">Eliminar</md-button>
+					<md-button type="submit" class="md-raised md-primary">Actualizar</md-button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div md-whiteframe="6" ng-show="fields.userMessage != ''">
+		<div class="containerbox">
+			<h3>{{fields.userMessage}}</h3>
 		</div>
 	</div>
 
@@ -36,8 +77,14 @@
 		<div class="containerbox">
 			<h2>Listado de Campos</h2>
 			<ul>
-				<li ng-repeat="field in fields.fields">
-					<a href="/" ng-bind="field.name"></a>
+				<li ng-repeat="field in fields.fields | orderBy:'+name'">
+					<md-button 
+						md-no-ink 
+						class="md-accent md-hue-3" 
+						ng-bind="field.name"
+						ng-click="fields.setFieldUpdate(field)"
+						>
+					</md-button>
 				</li>
 			</ul>
 		</div>
