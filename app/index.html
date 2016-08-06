@@ -23,7 +23,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <md-sidenav
+    <md-sidenav ng-if="General.logged"
         class="md-sidenav-left"
         md-component-id="left"
         md-is-locked-open="$mdMedia('gt-md')"
@@ -48,7 +48,7 @@
 
     <div style="width:100%">
       <div id="main">
-        <md-toolbar class="md-hue-2">
+        <md-toolbar class="md-hue-2" ng-if="General.logged">
           <div class="md-toolbar-tools container">
             <md-button class="md-icon-button" aria-label="Settings" ng-click="General.toggleSideNav()" hide-gt-md>
               <md-icon class="glyphicon glyphicon-menu-hamburger"></md-icon>
@@ -73,7 +73,7 @@
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
+     <!-- <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)

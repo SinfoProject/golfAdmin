@@ -10,8 +10,16 @@
 angular.module('golfAdminApp')
   .controller('GeneralCtrl', function ($mdSidenav) {
 
-  	this.toggleSideNav = function (){
+  	var vm = this;
+  	vm.logged = false;
+
+  	vm.togglelogin = function (){
+  		vm.logged = !vm.logged;
+  	}
+
+  	vm.toggleSideNav = function (){
   		$mdSidenav('left').toggle();
   	}
+
 
   });
