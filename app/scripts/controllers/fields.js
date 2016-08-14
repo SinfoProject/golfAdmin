@@ -8,8 +8,10 @@
  * Controller of the golfAdminApp
  */
 angular.module('golfAdminApp')
-  .controller('FieldsCtrl', function ($http,$scope) {
+  .controller('FieldsCtrl', function ($http,$scope,socket) {
   	
+    socket.emit('sockettest',{'saludo':'milibro'});
+
   	var vm = this;
     vm.fieldToUpdate = {};
     vm.userMessage = '';

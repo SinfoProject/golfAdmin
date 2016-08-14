@@ -18,8 +18,12 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
-  ])
+    'ngMaterial',
+    'btford.socket-io'
+  ]).
+  factory('socket', function (socketFactory) {
+    return socketFactory();
+  })
   .config(function ($routeProvider,$locationProvider,$mdThemingProvider) {
 
     $mdThemingProvider.theme('default')
