@@ -11,7 +11,7 @@ angular.module('golfAdminApp')
   .controller('GeneralCtrl', function ($mdSidenav) {
 
   	var vm = this;
-  	vm.logged = false;
+  	vm.logged = true;
 
   	vm.togglelogin = function (){
   		vm.logged = !vm.logged;

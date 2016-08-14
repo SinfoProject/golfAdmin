@@ -1,1 +1,76 @@
-<p>This is the register view.</p>
+<md-content>
+
+	<h1 class="text-center">Register</h1>
+
+	<div md-whiteframe="6" ng-show="!register.userToUpdate.id">
+		<div class="containerbox">
+			<h2>New User</h2>
+			<form name="myform" ng-submit="register.createUser()">
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>User *</label>
+				        <input ng-model="register.userName" name="userName" required>
+				    </md-input-container>
+
+				    <md-input-container>
+				        <label>Pass *</label>
+				        <input ng-model="register.userPass" name="userPass" required>
+				    </md-input-container>
+			    </div>
+			    <div layout layout-align="end">
+					<md-button type="submit" class="md-raised md-primary">Add</md-button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<div md-whiteframe="6" ng-show="register.userToUpdate.id">
+		<div class="containerbox">
+			<div  class="text-right">
+				<md-input class="glyphicon glyphicon-remove" ng-click="register.unsetUserUpdate()"></md-input>
+			</div>
+			<h2>Edit User</h2>
+			<form name="myformEdit" ng-submit="register.updateUser()">
+				<div layout layout-margin layout-wrap>
+					<md-input-container>
+				        <label>User *</label>
+				        <input ng-model="register.userToUpdate.name" name="userName" required>
+				    </md-input-container>
+
+				    <md-input-container>
+				        <label>Pass *</label>
+				        <input ng-model="register.userToUpdate.pass" name="userPass" required>
+				    </md-input-container>
+			    </div>
+			    <div  class="text-right">
+			    	<md-button class="md-raised md-warn" ng-click="register.deleteUser()">Delete</md-button>
+					<md-button class="md-raised md-primary" type="submit" >Update</md-button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div md-whiteframe="6" ng-show="register.userMessage != ''">
+		<div class="containerbox">
+			<h3>{{register.userMessage}}</h3>
+		</div>
+	</div>
+
+	<div md-whiteframe="6">
+		<div class="containerbox">
+			<h2>Listado de Campos</h2>
+			<ul>
+				<li ng-repeat="user in register.users | orderBy:'+name'">
+					<md-button 
+						md-no-ink 
+						class="md-accent md-hue-3" 
+						ng-bind="user.name"
+						ng-click="register.setUserUpdate(user)"
+						>
+					</md-button>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+</md-content>
