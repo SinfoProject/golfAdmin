@@ -45,6 +45,7 @@ angular.module('golfAdminApp')
   			player.total = total;
   			aux.push(player);
   		}
+      console.log(aux);
   		return aux;
   	}
 

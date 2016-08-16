@@ -1,1 +1,18 @@
-<p>This is the leaderboard view.</p>
+<h1 class="text-center">LEADERBOARD</h1>
+
+<md-card class="leaderboardTitle">
+	<div layout layout-padding>
+		<div flex="10">Posición</div>
+		<div flex>Nombre</div>
+		<div flex="10">Puntuación</div>
+	</div>
+</md-card>
+<div id="scoreContainer">
+	<md-card ng-repeat="player in vm.players | orderBy: player.total: true" ng-class="{even:$even,odd:$odd}">
+		<div layout layout-padding>
+			<div flex="10">#{{$index+1}}</div>
+			<div flex>{{player.name}}</div>
+			<div flex="10">{{player.total}}</div>
+		</div>
+	</md-card>
+</div>

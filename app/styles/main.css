@@ -66,3 +66,14 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 a.md-button.md-default-theme.md-primary.md-raised, a.md-button.md-primary.md-raised, a.md-button.md-default-theme.md-primary.md-fab, a.md-button.md-primary.md-fab, .md-button.md-default-theme.md-primary.md-raised, .md-button.md-primary.md-raised, .md-button.md-default-theme.md-primary.md-fab, .md-button.md-primary.md-fab{
   color: #FFF;
 }
+
+md-card.leaderboardTitle{
+  background-color: #885e5e;
+  color: #FFF;
+}
+#scoreContainer md-card.even{
+  background-color: #d0efcb;
+}
+#scoreContainer md-card.odd{
+  background-color: #efefef;
+}
