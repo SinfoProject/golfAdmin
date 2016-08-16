@@ -15,7 +15,7 @@ angular.module('golfAdminApp')
 
   	var vm = this;
 
-  	$rootScope.logged = false;
+  	$rootScope.logged = true;
 
   	$rootScope.togglelogin = function (){
       $rootScope.logged = !$rootScope.logged;

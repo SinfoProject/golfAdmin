@@ -39,9 +39,7 @@ angular
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        redirectTo: '/login'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
@@ -66,7 +64,7 @@ angular
       .when('/games/:game/leaderboard', {
         templateUrl: 'views/leaderboard.html',
         controller: 'LeaderboardCtrl',
-        controllerAs: 'leaderboard'
+        controllerAs: 'vm'
       })
       .when('/players', {
         templateUrl: 'views/players.html',
