@@ -14,6 +14,7 @@ angular.module('golfAdminApp')
     // $rootScope.APIurl = 'http://192.168.100.6:7000';
 
   	var vm = this;
+
   	$rootScope.logged = false;
 
   	$rootScope.togglelogin = function (){
