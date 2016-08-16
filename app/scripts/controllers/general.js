@@ -16,6 +16,11 @@ angular.module('golfAdminApp')
   	var vm = this;
 
   	$rootScope.logged = true;
+    $rootScope.fullScreen = true;
+
+    $rootScope.toggleScreen = function (){
+      $rootScope.fullScreen = !$rootScope.fullScreen;
+    }
 
   	$rootScope.togglelogin = function (){
       $rootScope.logged = !$rootScope.logged;
