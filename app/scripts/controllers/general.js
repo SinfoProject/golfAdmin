@@ -10,6 +10,9 @@
 angular.module('golfAdminApp')
   .controller('GeneralCtrl', function ($mdSidenav,$rootScope) {
 
+    $rootScope.APIurl = 'http://localhost:7000';
+    // $rootScope.APIurl = 'http://192.168.100.6:7000';
+
   	var vm = this;
   	$rootScope.logged = false;
 

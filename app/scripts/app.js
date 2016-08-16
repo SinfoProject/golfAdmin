@@ -22,7 +22,11 @@ angular
     'btford.socket-io'
   ]).
   factory('socket', function (socketFactory) {
-    return socketFactory();
+    var myIoSocket = io.connect('localhost:7000');
+    var socket = socketFactory({
+      ioSocket: myIoSocket
+    });
+    return socket;
   })
   .config(function ($routeProvider,$locationProvider,$mdThemingProvider) {
 
