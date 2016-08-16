@@ -2,19 +2,22 @@
 	<h1 class="text-center">SignIn</h1>
 	<div md-whiteframe="6">
 		<div class="containerbox">
-			<form>
-				<h2>User Data</h2>
+			<h2>User Data</h2>
+			<form name="myform" ng-submit="cv.searchUser()">
 				<div layout layout-margin layout-wrap>
 					<md-input-container>
-				        <label>UserName *</label>
-				        <input ng-model="user.name">
+				        <label>User *</label>
+				        <input ng-model="cv.userName" name="userName" required>
 				    </md-input-container>
+
 				    <md-input-container>
-				        <label>Password *</label>
-				        <input ng-model="user.pass">
+				        <label>Pass *</label>
+				        <input ng-model="cv.userPass" name="userPass" required>
 				    </md-input-container>
 			    </div>
-				<md-button class="md-raised md-primary">Login</md-button>
+			    <div layout layout-align="end">
+					<md-button type="submit" class="md-raised md-primary">Login</md-button>
+				</div>
 			</form>
 		</div>
 	</div>

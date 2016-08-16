@@ -34,6 +34,8 @@ angular.module('golfAdminApp')
         {
           var res = data.data;
           getUsersList();
+          vm.userName=null;
+          vm.userPass=null;
           vm.userMessage = 'Usuario Creado';
         });
       }
@@ -49,6 +51,7 @@ angular.module('golfAdminApp')
         $http.put('http://localhost:7000/user/'+vm.userToUpdate.id,userObj).then(function (data){
           var res = data.data;
             getUsersList();
+            vm.unsetUserUpdate();
             vm.userMessage = 'Usuario actualizado.';
         });
       }
@@ -73,9 +76,9 @@ angular.module('golfAdminApp')
         }
         else
         {
-          vm.userMessage = 'Usuario eliminado.';
           vm.unsetUserUpdate();
           getUsersList();
+          vm.userMessage = 'Usuario eliminado.';
         }
       });
     }
