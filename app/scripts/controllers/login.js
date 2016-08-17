@@ -28,7 +28,7 @@ angular.module('golfAdminApp')
           {
           	console.log(res);
           	$rootScope.logged=true;
-          	$location.path("/");
+          	$location.path("/games");
           }
         });
       }

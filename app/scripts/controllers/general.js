@@ -10,9 +10,17 @@
 angular.module('golfAdminApp')
   .controller('GeneralCtrl', function ($mdSidenav,$rootScope,$location) {
 
+    $rootScope.APIurl = 'http://localhost:7000';
+    // $rootScope.APIurl = 'http://192.168.100.6:7000';
+
   	var vm = this;
 
   	$rootScope.logged = false;
+    $rootScope.fullScreen = true;
+
+    $rootScope.toggleScreen = function (){
+      $rootScope.fullScreen = !$rootScope.fullScreen;
+    }
 
   	$rootScope.togglelogin = function (){
       $rootScope.logged = !$rootScope.logged;

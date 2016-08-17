@@ -8,7 +8,8 @@
  * Controller of the golfAdminApp
  */
 angular.module('golfAdminApp')
-  .controller('LeaderboardCtrl', function ($http,$routeParams) {
+
+  .controller('LeaderboardCtrl', function ($http,$routeParams,$rootScope) {
 
   	var vm = this;
 
